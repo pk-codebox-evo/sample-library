@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/5.0/window.xsd"
+        caption="msg://editCaption"
+        class="com.sample.library.gui.book.BookEdit"
+        datasource="bookDs"
+        messagesPack="com.sample.library.gui.book">
+    <dsContext>
+        <datasource id="bookDs"
+                    class="com.sample.library.entity.Book"
+                    view="book.edit">
+            <collectionDatasource id="authorsDs"
+                                  property="authors"/>
+        </datasource>
+        <collectionDatasource id="literatureTypesDs"
+                              class="com.sample.library.entity.LiteratureType"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from library$LiteratureType e order by e.name]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <actions>
+        <action id="addAuthorAction"
+                caption="msg://actions.Add"
+                icon="icons/add.png"
+                invoke="addAuthor"/>
+    </actions>
+    <layout expand="windowActions"
+            spacing="true">
+        <groupBox width="500px">
+            <fieldGroup id="fieldGroup"
+                        datasource="bookDs"
+                        width="100%">
+                <field id="name"
+                       width="100%"/>
+                <field id="literatureType"
+                       custom="true"
+                       required="true"
+                       requiredMessage="msg://selectLiteratureType"
+                       width="100%"/>
+            </fieldGroup>
+        </groupBox>
+        <groupBox id="groupbox_1"
+                  caption="msg://Book.authors"
+                  spacing="true"
+                  width="500px">
+            <table id="authorsTable"
+                   height="200px"
+                   width="100%">
+                <rows datasource="authorsDs"/>
+                <columns>
+                    <column id="firstName"/>
+                    <column id="middleName"/>
+                    <column id="lastName"/>
+                </columns>
+                <actions>
+                    <action id="addAuthorAction"
+                            caption="msg://actions.Add"
+                            icon="icons/add.png"
+                            invoke="addAuthor"/>
+                    <action id="remove"/>
+                </actions>
+                <buttonsPanel id="buttonspanel_1">
+                    <button id="addAuthorActionBtn"
+                            action="authorsTable.addAuthorAction"/>
+                    <button id="removeBtn"
+                            action="authorsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <iframe id="windowActions"
+                height="100%"
+                screen="editWindowActions"/>
+    </layout>
+</window>

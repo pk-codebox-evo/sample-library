@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/5.0/window.xsd"
+        caption="msg://browseCaption"
+        class="com.sample.library.gui.literaturetype.LiteratureTypeBrowse"
+        lookupComponent="literatureTypeTable"
+        messagesPack="com.sample.library.gui.literaturetype">
+    <dsContext>
+        <collectionDatasource id="literatureTypeDs"
+                              class="com.sample.library.entity.LiteratureType"
+                              view="_local">
+            <query>
+                <![CDATA[select e from library$LiteratureType e]]>
+                <filter>
+                    <c>e.name like :(?i)component$filterField</c>
+                </filter>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="literatureTypeTable"
+            spacing="true">
+        <hbox>
+            <groupBox caption="msg://filterByName"
+                      orientation="horizontal"
+                      spacing="true"
+                      width="auto">
+                <textField id="filterField"
+                           width="200px"/>
+                <button id="applyBtn"
+                        caption="msg://apply"
+                        invoke="refreshTable"/>
+            </groupBox>
+        </hbox>
+        <table id="literatureTypeTable"
+               height="100%"
+               width="100%">
+            <rows datasource="literatureTypeDs"/>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="literatureTypeTable.create"/>
+                <button id="editBtn"
+                        action="literatureTypeTable.edit"/>
+                <button id="removeBtn"
+                        action="literatureTypeTable.remove"/>
+                <button id="excelBtn"
+                        action="literatureTypeTable.excel"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

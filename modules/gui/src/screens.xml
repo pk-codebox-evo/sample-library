@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<screen-config xmlns="http://schemas.haulmont.com/cuba/5.0/screens.xsd">
+    <screen id="library$Author.lookup"
+            template="com/sample/library/gui/author/author-browse.xml"/>
+    <screen id="library$Author.edit"
+            template="com/sample/library/gui/author/author-edit.xml"/>
+    <screen id="library$Book.lookup"
+            template="com/sample/library/gui/book/book-browse.xml"/>
+    <screen id="library$Book.edit"
+            template="com/sample/library/gui/book/book-edit.xml"/>
+    <screen id="library$BookInstance.lookup"
+            template="com/sample/library/gui/bookinstance/bookinstance-browse.xml"/>
+    <screen id="library$BookInstance.edit"
+            template="com/sample/library/gui/bookinstance/bookinstance-edit.xml"/>
+    <screen id="library$BookPublication.lookup"
+            template="com/sample/library/gui/bookpublication/bookpublication-browse.xml"/>
+    <screen id="library$BookPublication.edit"
+            template="com/sample/library/gui/bookpublication/bookpublication-edit.xml"/>
+    <screen id="library$LibraryDepartment.lookup"
+            template="com/sample/library/gui/librarydepartment/librarydepartment-browse.xml"/>
+    <screen id="library$LibraryDepartment.edit"
+            template="com/sample/library/gui/librarydepartment/librarydepartment-edit.xml"/>
+    <screen id="library$LiteratureType.lookup"
+            template="com/sample/library/gui/literaturetype/literaturetype-browse.xml"/>
+    <screen id="library$LiteratureType.edit"
+            template="com/sample/library/gui/literaturetype/literaturetype-edit.xml"/>
+    <screen id="library$Publisher.lookup"
+            template="com/sample/library/gui/publisher/publisher-browse.xml"/>
+    <screen id="library$Publisher.edit"
+            template="com/sample/library/gui/publisher/publisher-edit.xml"/>
+    <screen id="library$Town.lookup"
+            template="com/sample/library/gui/town/town-browse.xml"/>
+    <screen id="library$Town.edit"
+            template="com/sample/library/gui/town/town-edit.xml"/>
+    <screen id="department-assigning"
+            template="com/sample/library/gui/department_assigning/department-assigning.xml"/>
+    <screen id="accession-register"
+            template="com/sample/library/gui/accession/accession-register.xml"/>
+</screen-config>

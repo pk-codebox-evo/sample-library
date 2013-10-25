@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<views xmlns="http://schemas.haulmont.com/cuba/5.0/view.xsd">
+    <view class="com.sample.library.entity.BookPublication"
+          name="bookPublication.edit">
+        <property name="year"/>
+        <property name="book"
+                  view="_minimal">
+        </property>
+        <property name="publisher"
+                  view="_minimal">
+        </property>
+        <property name="town"
+                  view="_minimal">
+        </property>
+    </view>
+    <view class="com.sample.library.entity.BookPublication"
+          name="bookPublication.browse">
+        <property name="year"/>
+        <property name="book"
+                  view="_minimal">
+        </property>
+        <property name="publisher"
+                  view="_minimal">
+        </property>
+        <property name="town"
+                  view="_minimal">
+        </property>
+    </view>
+    <view class="com.sample.library.entity.Book"
+          name="book.browse">
+        <property name="name"/>
+        <property name="literatureType"
+                  view="_minimal"/>
+    </view>
+    <view class="com.sample.library.entity.Book"
+          name="book.edit">
+        <property name="name"/>
+        <property name="literatureType"
+                  view="_minimal">
+            <property name="name"/>
+        </property>
+        <property name="authors">
+            <property name="firstName"/>
+            <property name="middleName"/>
+            <property name="lastName"/>
+        </property>
+    </view>
+    <view class="com.sample.library.entity.BookInstance"
+          name="bookInstance.browse">
+        <property name="isReference"/>
+        <property name="inventoryNumber"/>
+        <property name="bookPublication">
+            <property name="book"
+                      view="_minimal"/>
+        </property>
+        <property name="libraryDepartment"
+                  view="_minimal">
+            <property name="name"/>
+        </property>
+    </view>
+    <view class="com.sample.library.entity.BookInstance"
+          name="bookInstance.edit">
+        <property name="isReference"/>
+        <property name="inventoryNumber"/>
+        <property name="bookPublication">
+            <property name="book"
+                      view="_minimal"/>
+        </property>
+        <property name="libraryDepartment"
+                  view="_minimal">
+            <property name="name"/>
+        </property>
+    </view>
+    <view class="com.sample.library.entity.BookPublication"
+          name="bookPublication.accession">
+        <property name="year"/>
+        <property name="publisher"
+                  view="_minimal">
+        </property>
+        <property name="town"
+                  view="_minimal">
+        </property>
+        <property name="book"
+                  view="_minimal"/>
+    </view>
+    <view class="com.sample.library.entity.BookInstance"
+          name="bookInstance.accession">
+        <property name="isReference"/>
+        <property name="inventoryNumber"/>
+        <property name="bookPublication">
+            <property name="book" view="_minimal"/>
+        </property>
+        <property name="libraryDepartment"
+                  view="_minimal"/>
+    </view>
+    <view class="com.sample.library.entity.BookInstance"
+          name="bookInstance.assignLibraryDepartment">
+        <property name="isReference"/>
+        <property name="inventoryNumber"/>
+        <property name="libraryDepartment"
+                  view="_minimal"/>
+    </view>
+</views>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/5.0/window.xsd"
+        caption="msg://editCaption"
+        class="com.sample.library.gui.literaturetype.LiteratureTypeEdit"
+        datasource="literatureTypeDs"
+        messagesPack="com.sample.library.gui.literaturetype">
+    <dsContext>
+        <datasource id="literatureTypeDs"
+                    class="com.sample.library.entity.LiteratureType"
+                    view="_local"/>
+    </dsContext>
+    <layout expand="windowActions"
+            margin="true"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="literatureTypeDs"
+                    width="100%">
+            <field id="name"
+                   width="100%"/>
+        </fieldGroup>
+        <iframe id="windowActions"
+                height="100%"
+                screen="editWindowActions"/>
+    </layout>
+</window>

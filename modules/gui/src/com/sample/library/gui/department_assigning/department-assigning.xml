@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/5.0/window.xsd"
+        caption="msg://caption"
+        class="com.sample.library.gui.department_assigning.DepartmentAssigning"
+        messagesPack="com.sample.library.gui.department_assigning">
+    <dsContext>
+        <collectionDatasource id="libraryDepartmentsDs"
+                              class="com.sample.library.entity.LibraryDepartment"
+                              view="_minimal">
+            <query>
+                <![CDATA[select ld from library$LibraryDepartment ld
+                    order by ld.name]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <actions>
+        <action id="assign"
+                caption="msg://assign"
+                invoke="assign"/>
+        <action id="close"
+                caption="msg://close"
+                invoke="close"/>
+    </actions>
+    <layout spacing="true">
+        <lookupField id="libraryDepartmentField"
+                     caption="msg://selectLibraryDepartment"
+                     optionsDatasource="libraryDepartmentsDs"
+                     width="100%"/>
+        <hbox spacing="true">
+            <button id="assignBtn"
+                    action="assign"/>
+            <button action="close"/>
+        </hbox>
+    </layout>
+</window>

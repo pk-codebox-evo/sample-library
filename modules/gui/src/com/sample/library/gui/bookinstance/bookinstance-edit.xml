@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/5.0/window.xsd"
+        caption="msg://editCaption"
+        class="com.sample.library.gui.bookinstance.BookInstanceEdit"
+        datasource="bookInstanceDs"
+        messagesPack="com.sample.library.gui.bookinstance">
+    <dsContext>
+        <datasource id="bookInstanceDs"
+                    class="com.sample.library.entity.BookInstance"
+                    view="bookInstance.edit"/>
+        <collectionDatasource id="libraryDepartmentsDs"
+                              class="com.sample.library.entity.LibraryDepartment"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from library$LibraryDepartment e order by e.name]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="windowActions"
+            margin="true"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="bookInstanceDs">
+            <field id="inventoryNumber"
+                   editable="false"
+                   width="250px"/>
+            <field id="bookPublication.book"
+                   editable="false"
+                   width="250px"/>
+            <field id="isReference"
+                   width="250px"/>
+            <field id="libraryDepartment"
+                   optionsDatasource="libraryDepartmentsDs"
+                   width="250px"/>
+        </fieldGroup>
+        <iframe id="windowActions"
+                height="100%"
+                screen="editWindowActions"/>
+    </layout>
+</window>

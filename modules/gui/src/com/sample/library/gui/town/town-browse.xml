@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/5.0/window.xsd"
+        caption="msg://browseCaption"
+        class="com.sample.library.gui.town.TownBrowse"
+        lookupComponent="townTable"
+        messagesPack="com.sample.library.gui.town">
+    <dsContext>
+        <collectionDatasource id="townDs"
+                              class="com.sample.library.entity.Town"
+                              view="_local">
+            <query>
+                <![CDATA[select e from library$Town e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout spacing="true">
+        <table id="townTable"
+               height="100%"
+               width="100%">
+            <rows datasource="townDs"/>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="townTable.create"/>
+                <button id="editBtn"
+                        action="townTable.edit"/>
+                <button id="removeBtn"
+                        action="townTable.remove"/>
+                <button id="excelBtn"
+                        action="townTable.excel"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

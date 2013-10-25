@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/5.0/window.xsd"
+        caption="msg://browseCaption"
+        class="com.sample.library.gui.author.AuthorBrowse"
+        lookupComponent="authorTable"
+        messagesPack="com.sample.library.gui.author">
+    <dsContext>
+        <collectionDatasource id="authorDs"
+                              class="com.sample.library.entity.Author"
+                              view="_local">
+            <query>
+                <![CDATA[select e from library$Author e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="authorTable"
+            spacing="true">
+        <filter id="filter"
+                datasource="authorDs"
+                margin="false,false,true,false">
+            <properties include=".*"/>
+        </filter>
+        <table id="authorTable"
+               height="100%"
+               width="100%">
+            <rows datasource="authorDs"/>
+            <columns>
+                <column id="firstName"/>
+                <column id="middleName"/>
+                <column id="lastName"/>
+            </columns>
+            <rowsCount/>
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="authorTable.create"/>
+                <button id="editBtn"
+                        action="authorTable.edit"/>
+                <button id="removeBtn"
+                        action="authorTable.remove"/>
+                <button id="excelBtn"
+                        action="authorTable.excel"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

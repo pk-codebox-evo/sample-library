@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+
+<menu-config xmlns="http://schemas.haulmont.com/cuba/5.0/menu.xsd">
+    <menu id="library"
+          insertBefore="reports">
+        <item id="library$Book.lookup"/>
+        <item id="library$BookPublication.lookup"/>
+        <item id="accession-register"/>
+    </menu>
+    <menu id="referenceData"
+          insertAfter="library">
+        <item id="library$LibraryDepartment.lookup"/>
+        <item id="library$LiteratureType.lookup"/>
+        <item id="library$Town.lookup"/>
+        <item id="library$Author.lookup"/>
+        <item id="library$Publisher.lookup"/>
+    </menu>
+</menu-config>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/5.0/window.xsd"
+        caption="msg://browseCaption"
+        class="com.sample.library.gui.bookinstance.BookInstanceBrowse"
+        lookupComponent="bookInstanceTable"
+        messagesPack="com.sample.library.gui.bookinstance">
+    <dsContext>
+        <collectionDatasource id="bookInstanceDs"
+                              class="com.sample.library.entity.BookInstance"
+                              view="bookInstance.browse">
+            <query>
+                <![CDATA[select e from library$BookInstance e where e.bookPublication.id = :param$bookPublication.id order by e.inventoryNumber]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="bookInstanceTable"
+            spacing="true">
+        <label id="bookTitleLabel"/>
+        <table id="bookInstanceTable"
+               height="100%"
+               width="100%">
+            <rows datasource="bookInstanceDs"/>
+            <columns>
+                <column id="inventoryNumber"/>
+                <column id="bookPublication.book"/>
+                <column id="libraryDepartment"/>
+                <column id="isReference"/>
+            </columns>
+            <rowsCount/>
+            <actions>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="assignLibraryDepartment"
+                        action="assignLibraryDepartment"/>
+                <button id="editBtn"
+                        action="bookInstanceTable.edit"/>
+                <button id="removeBtn"
+                        action="bookInstanceTable.remove"/>
+                <button id="excelBtn"
+                        action="bookInstanceTable.excel"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

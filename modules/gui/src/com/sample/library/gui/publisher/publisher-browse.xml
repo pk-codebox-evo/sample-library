@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2013 Haulmont
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/5.0/window.xsd"
+        caption="msg://browseCaption"
+        class="com.sample.library.gui.publisher.PublisherBrowse"
+        lookupComponent="publisherTable"
+        messagesPack="com.sample.library.gui.publisher">
+    <dsContext>
+        <collectionDatasource id="publisherDs"
+                              class="com.sample.library.entity.Publisher"
+                              view="_local">
+            <query>
+                <![CDATA[select e from library$Publisher e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout spacing="true">
+        <table id="publisherTable"
+               height="100%"
+               width="100%">
+            <rows datasource="publisherDs"/>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rowsCount/>
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="publisherTable.create"/>
+                <button id="editBtn"
+                        action="publisherTable.edit"/>
+                <button id="removeBtn"
+                        action="publisherTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
