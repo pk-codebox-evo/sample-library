@@ -10,7 +10,7 @@
     <dsContext>
         <groupDatasource id="bookPublicationDs"
                          class="com.sample.library.entity.BookPublication"
-                         view="bookPublication.browse">
+                         view="bookPublication.full">
             <query>
                 <![CDATA[select e from library$BookPublication e]]>
             </query>

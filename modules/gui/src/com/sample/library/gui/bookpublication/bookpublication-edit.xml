@@ -10,7 +10,7 @@
     <dsContext>
         <datasource id="bookPublicationDs"
                     class="com.sample.library.entity.BookPublication"
-                    view="bookPublication.edit"/>
+                    view="bookPublication.full"/>
         <collectionDatasource id="townsDs"
                               class="com.sample.library.entity.Town"
                               view="_local">

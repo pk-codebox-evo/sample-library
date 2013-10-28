@@ -17,7 +17,7 @@ order by b.name]]>
         </collectionDatasource>
         <collectionDatasource id="bookPublicationsDs"
                               class="com.sample.library.entity.BookPublication"
-                              view="bookPublication.accession">
+                              view="bookPublication.full">
             <query>
                 <![CDATA[select p from library$BookPublication p
 where p.book.id = :component$bookField.id
