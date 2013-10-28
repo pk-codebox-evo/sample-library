@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
 
-@NamePattern("%s|")
+@NamePattern("%s|book")
 @Table(name = "LIBRARY_BOOK_PUBLICATION")
 @Entity(name = "library$BookPublication")
 public class BookPublication extends StandardEntity {
