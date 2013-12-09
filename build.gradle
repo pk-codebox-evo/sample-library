@@ -9,7 +9,7 @@ allprojects {
 }
 
 buildscript {
-    ext.cubaVersion = '5.0.5'
+    ext.cubaVersion = '5.0.6'
     repositories {
         maven {
             url 'https://repo.cuba-platform.com/content/groups/work'
@@ -170,16 +170,25 @@ configure(webModule) {
         archives webArchive
     }
 
-    task deploy(dependsOn: assemble, type: CubaDeployment) {
-        appName = 'app'
-        appJars('cuba-web', 'reports-web', 'cuba-global', 'reports-global', 'cuba-client', 'cuba-gui', 'reports-gui', 
-                'app-global', 'app-gui', 'app-web')
-    }
-
     task deployConf(type: Copy) {
         from file('src')
         include "com/sample/library/**"
         into "$tomcatDir/conf/app"
+    }
+
+    task cleanConf(description: 'Cleans up conf directory') << {
+        def dir = new File(tomcatDir, '/conf/app')
+        if (dir.isDirectory()) {
+            ant.delete(includeemptydirs: true) {
+                fileset(dir: dir, includes: '**/*', excludes: 'local.app.properties')
+            }
+        }
+    }
+
+    task deploy(dependsOn: [assemble, cleanConf], type: CubaDeployment) {
+        appName = 'app'
+        appJars('cuba-web', 'reports-web', 'cuba-client', 'cuba-gui', 'reports-gui', 'cuba-global', 'reports-global', 
+                'app-global', 'app-gui', 'app-web')
     }
 }
 
@@ -215,23 +224,15 @@ configure(desktopModule) {
     }
 }
 
-task cleanConf(description: 'Cleans up conf directory') << {
-    def dir = new File(tomcatDir, '/conf/app')
-    if (dir.isDirectory()) {
-        ant.delete(includeemptydirs: true) {
-            fileset(dir: dir, includes: '**/*', excludes: 'local.app.properties')
-        }
-    }
-}
 
-task undeploy(type: Delete, dependsOn: cleanConf) {
+task undeploy(type: Delete, dependsOn: ':app-web:cleanConf') {
     delete("$tomcatDir/shared")
     delete("$tomcatDir/webapps/app-core")
     delete("$tomcatDir/webapps/app")
     delete("$tomcatDir/webapps/app-webstart")
 }
 
-task restart(dependsOn: ['stop', 'cleanConf', ':app-core:deploy', ':app-web:deploy'], description: 'Redeploys applications and restarts local Tomcat') << {
+task restart(dependsOn: ['stop', ':app-core:deploy', ':app-web:deploy'], description: 'Redeploys applications and restarts local Tomcat') << {
     ant.waitfor(maxwait: 6, maxwaitunit: 'second', checkevery: 2, checkeveryunit: 'second') {
         not {
             socket(server: 'localhost', port: '8787')
