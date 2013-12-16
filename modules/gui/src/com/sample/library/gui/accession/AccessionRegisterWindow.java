@@ -6,44 +6,43 @@ package com.sample.library.gui.accession;
 
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
-
-import java.util.*;
-
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.ValueListener;
-import com.sample.library.service.BookInstanceService;
 import com.sample.library.entity.Book;
 import com.sample.library.entity.BookInstance;
 import com.sample.library.entity.BookPublication;
 import com.sample.library.gui.components.AssignLibraryDepartmentAction;
+import com.sample.library.service.BookInstanceService;
 
 import javax.inject.Inject;
-import javax.inject.Named;
+import java.util.Collection;
+import java.util.Map;
+import java.util.UUID;
 
 public class AccessionRegisterWindow extends AbstractWindow {
 
     @Inject
     private BookInstanceService bookInstanceService;
 
-    @Named("booksDs")
+    @Inject
     private CollectionDatasource<Book, UUID> booksDs;
 
-    @Named("bookPublicationsDs")
+    @Inject
     private CollectionDatasource<BookPublication, UUID> bookPublicationsDs;
 
-    @Named("bookInstancesDs")
+    @Inject
     private CollectionDatasource<BookInstance, UUID> bookInstancesDs;
 
-    @Named("bookField")
+    @Inject
     private LookupPickerField bookField;
 
-    @Named("bookPublicationsTable")
+    @Inject
     private Table bookPublicationsTable;
 
-    @Named("bookInstancesAmountField")
+    @Inject
     private TextField bookInstancesAmountField;
 
-    @Named("bookInstancesTable")
+    @Inject
     private Table bookInstancesTable;
 
     @Override
@@ -56,9 +55,6 @@ public class AccessionRegisterWindow extends AbstractWindow {
         });
 
         addAction(new AssignLibraryDepartmentAction(bookInstancesTable));
-
-        bookInstancesDs.refresh(Collections.<String, Object>singletonMap(
-                "bookInstancesIds", Collections.singletonList(UUID.randomUUID())));
     }
 
     public void createBook(Component source) {
@@ -113,13 +109,13 @@ public class AccessionRegisterWindow extends AbstractWindow {
             return;
         }
 
+        // Create book instances in the middleware service
         Collection<BookInstance> bookInstances = bookInstanceService.createBookInstances(
                 bookPublication, bookInstancesAmount);
 
-        Collection<UUID> bookInstancesIds = new ArrayList<>();
+        // Add created book instances to the datasource
         for (BookInstance bookInstance : bookInstances) {
-            bookInstancesIds.add(bookInstance.getId());
+            bookInstancesDs.includeItem(bookInstance);
         }
-        bookInstancesDs.refresh(Collections.<String, Object>singletonMap("bookInstancesIds", bookInstancesIds));
     }
 }

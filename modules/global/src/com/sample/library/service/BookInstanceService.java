@@ -4,18 +4,25 @@
 
 package com.sample.library.service;
 
+import com.haulmont.cuba.core.global.View;
 import com.sample.library.entity.BookInstance;
 import com.sample.library.entity.BookPublication;
 import com.sample.library.entity.LibraryDepartment;
 
-import java.lang.String;
 import java.util.Collection;
 
 public interface BookInstanceService {
 
     String NAME = "library_BookInstanceService";
 
+    /**
+     * Create and return new book instances.
+     */
     Collection<BookInstance> createBookInstances(BookPublication bookPublication, Integer amount);
 
-    void assignLibraryDepartment(Collection<BookInstance> booksInstances, LibraryDepartment libraryDepartment);
+    /**
+     * Set department attribute in book instances and return updated entities.
+     */
+    Collection<BookInstance> assignLibraryDepartment(Collection<BookInstance> bookInstances,
+                                                     LibraryDepartment libraryDepartment, View bookInstanceView);
 }

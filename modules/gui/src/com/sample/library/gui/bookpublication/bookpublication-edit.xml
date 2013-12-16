@@ -39,7 +39,7 @@
         <fieldGroup id="fieldGroup"
                     datasource="bookPublicationDs">
             <field id="book"
-                   custom="true"
+                   optionsDatasource="booksDs"
                    required="true"
                    width="250px"/>
             <field id="publisher"

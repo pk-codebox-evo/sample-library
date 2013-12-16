@@ -4,11 +4,13 @@
 
 package com.sample.library.service;
 
+import com.haulmont.cuba.core.EntityManager;
 import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.Transaction;
 import com.haulmont.cuba.core.app.UniqueNumbersAPI;
 import com.haulmont.cuba.core.global.AccessDeniedException;
 import com.haulmont.cuba.core.global.Security;
+import com.haulmont.cuba.core.global.View;
 import com.haulmont.cuba.security.entity.EntityOp;
 import com.haulmont.cuba.security.entity.PermissionType;
 import com.sample.library.entity.BookInstance;
@@ -53,19 +55,27 @@ public class BookInstanceServiceBean implements BookInstanceService {
     }
 
     @Override
-    public void assignLibraryDepartment(Collection<BookInstance> booksInstances, LibraryDepartment libraryDepartment) {
+    public Collection<BookInstance> assignLibraryDepartment(Collection<BookInstance> bookInstances,
+                                                            LibraryDepartment libraryDepartment, View bookInstanceView) {
         checkPermission(EntityOp.UPDATE);
+        Collection<BookInstance> mergedInstances = new ArrayList<>();
         // Explicit transaction control
         Transaction tx = persistence.createTransaction();
         try {
-            for (BookInstance booksInstance : booksInstances) {
-                BookInstance instance = persistence.getEntityManager().merge(booksInstance);
+            EntityManager em = persistence.getEntityManager();
+            for (BookInstance booksInstance : bookInstances) {
+                BookInstance instance = em.merge(booksInstance);
                 instance.setLibraryDepartment(libraryDepartment);
+                // Fetch the object graph specified by the view
+                em.fetch(instance, bookInstanceView);
+                // Return the updated instance
+                mergedInstances.add(instance);
             }
             tx.commit();
         } finally {
             tx.end();
         }
+        return mergedInstances;
     }
 
      private void checkPermission(EntityOp op) {

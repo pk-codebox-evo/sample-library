@@ -26,13 +26,8 @@ order by p.book.name]]>
         </collectionDatasource>
         <collectionDatasource id="bookInstancesDs"
                               class="com.sample.library.entity.BookInstance"
-                              view="bookInstance.accession">
-            <query>
-                <![CDATA[select bi from library$BookInstance bi
-where bi.id in :custom$bookInstancesIds
-order by bi.inventoryNumber]]>
-            </query>
-        </collectionDatasource>
+                              refreshMode="NEVER"
+                              view="bookInstance.accession"/>
     </dsContext>
     <actions>
         <action id="createBook"
@@ -104,6 +99,7 @@ order by bi.inventoryNumber]]>
                   spacing="true">
             <table id="bookInstancesTable"
                    height="100%"
+                   multiselect="true"
                    width="100%">
                 <rows datasource="bookInstancesDs"/>
                 <columns>
