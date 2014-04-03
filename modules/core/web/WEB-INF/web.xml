@@ -35,14 +35,4 @@
         <url-pattern>/remoting/*</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>restapi</servlet-name>
-        <servlet-class>com.haulmont.cuba.core.sys.restapi.RestApiServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>restapi</servlet-name>
-        <url-pattern>/api/*</url-pattern>
-    </servlet-mapping>
 </web-app>
