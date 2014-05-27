@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (c) 2013 Haulmont
+  ~ Copyright (c) 2014 Haulmont
   -->
 
 <jnlp
@@ -12,7 +12,7 @@
     <information>
         <title>library desktop application</title>
         <vendor>com.sample.library</vendor>
-<!--         <homepage href="http://www.haulmont.com"/> -->
+        <homepage href="http://www.cuba-platform.com"/>
         <description>library desktop application</description>
         <description kind="short">library desktop application</description>
         <offline-allowed/>

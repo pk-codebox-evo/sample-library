@@ -4,12 +4,11 @@ allprojects {
     ext.artifactVersion = '0.1'
     ext.isSnapshot = true
     ext.tomcatDir = "$rootDir/build/tomcat"
-    ext.copyright = "Copyright (c) 2013 Haulmont" // Copyright Notice for IDEA project
-    // ext.vcs = 'svn' // VCS for IDEA project
+    ext.copyright = "Copyright (c) 2014 Haulmont" // Copyright Notice for IDEA project
 }
 
 buildscript {
-    ext.cubaVersion = '5.0.17'
+    ext.cubaVersion = '5.1.5'
     repositories {
         maven {
             url 'https://repo.cuba-platform.com/content/groups/work'
@@ -142,6 +141,11 @@ configure(guiModule) {
         include "com/sample/library/**"
         into "$tomcatDir/conf/app"
     }
+
+    task clearMessagesCache(type: CubaClearMessagesCache) {
+        appName = 'app'
+    }
+    deployConf.dependsOn clearMessagesCache
 }
 
 configure(webModule) {
@@ -176,6 +180,11 @@ configure(webModule) {
         into "$tomcatDir/conf/app"
     }
 
+    task clearMessagesCache(type: CubaClearMessagesCache) {
+        appName = 'app'
+    }
+    deployConf.dependsOn clearMessagesCache
+
     task cleanConf(description: 'Cleans up conf directory') << {
         def dir = new File(tomcatDir, '/conf/app')
         if (dir.isDirectory()) {
@@ -204,6 +213,12 @@ configure(desktopModule) {
 
     }
     assemble.dependsOn = [ classes ]
+
+    jar {
+        manifest {
+            attributes("Permissions": "all-permissions")
+        }
+    }
 
     installApp {
         into("${projectDir}/../../build/" + applicationName)

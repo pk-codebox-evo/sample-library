@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Haulmont
+ * Copyright (c) 2014 Haulmont
  */
 
 package com.sample.library.gui.librarydepartment;

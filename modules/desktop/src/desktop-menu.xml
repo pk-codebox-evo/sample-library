@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
-  ~ Copyright (c) 2013 Haulmont
+  ~ Copyright (c) 2014 Haulmont
   -->
 
-<menu-config xmlns="http://schemas.haulmont.com/cuba/5.0/menu.xsd">
+<menu-config xmlns="http://schemas.haulmont.com/cuba/5.1/menu.xsd">
     <menu id="library"
           insertBefore="reports">
         <item id="library$Book.lookup"/>

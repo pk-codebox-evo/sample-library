@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (c) 2013 Haulmont
+  ~ Copyright (c) 2014 Haulmont
   -->
 
-<metadata xmlns="http://schemas.haulmont.com/cuba/5.0/metadata.xsd">
+<metadata xmlns="http://schemas.haulmont.com/cuba/5.1/metadata.xsd">
 
     <metadata-model root-package="com.sample.library"/>
 
