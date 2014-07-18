@@ -1,12 +1,12 @@
 -- begin LIBRARY_AUTHOR
 create table LIBRARY_AUTHOR (
     ID varchar(36) not null,
-    CREATE_TS time,
+    CREATE_TS timestamp,
     CREATED_BY varchar(50),
     VERSION integer,
-    UPDATE_TS time,
+    UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
-    DELETE_TS time,
+    DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
     FIRST_NAME varchar(50),
@@ -19,12 +19,12 @@ create table LIBRARY_AUTHOR (
 -- begin LIBRARY_TOWN
 create table LIBRARY_TOWN (
     ID varchar(36) not null,
-    CREATE_TS time,
+    CREATE_TS timestamp,
     CREATED_BY varchar(50),
     VERSION integer,
-    UPDATE_TS time,
+    UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
-    DELETE_TS time,
+    DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
     NAME varchar(50) not null,
@@ -35,12 +35,12 @@ create table LIBRARY_TOWN (
 -- begin LIBRARY_PUBLISHER
 create table LIBRARY_PUBLISHER (
     ID varchar(36) not null,
-    CREATE_TS time,
+    CREATE_TS timestamp,
     CREATED_BY varchar(50),
     VERSION integer,
-    UPDATE_TS time,
+    UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
-    DELETE_TS time,
+    DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
     NAME varchar(50) not null,
@@ -51,12 +51,12 @@ create table LIBRARY_PUBLISHER (
 -- begin LIBRARY_LITERATURE_TYPE
 create table LIBRARY_LITERATURE_TYPE (
     ID varchar(36) not null,
-    CREATE_TS time,
+    CREATE_TS timestamp,
     CREATED_BY varchar(50),
     VERSION integer,
-    UPDATE_TS time,
+    UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
-    DELETE_TS time,
+    DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
     NAME varchar(50) not null,
@@ -67,12 +67,12 @@ create table LIBRARY_LITERATURE_TYPE (
 -- begin LIBRARY_LIBRARY_DEPARTMENT
 create table LIBRARY_LIBRARY_DEPARTMENT (
     ID varchar(36) not null,
-    CREATE_TS time,
+    CREATE_TS timestamp,
     CREATED_BY varchar(50),
     VERSION integer,
-    UPDATE_TS time,
+    UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
-    DELETE_TS time,
+    DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
     NAME varchar(50) not null,
@@ -83,12 +83,12 @@ create table LIBRARY_LIBRARY_DEPARTMENT (
 -- begin LIBRARY_BOOK
 create table LIBRARY_BOOK (
     ID varchar(36) not null,
-    CREATE_TS time,
+    CREATE_TS timestamp,
     CREATED_BY varchar(50),
     VERSION integer,
-    UPDATE_TS time,
+    UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
-    DELETE_TS time,
+    DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
     NAME varchar(100) not null,
@@ -100,12 +100,12 @@ create table LIBRARY_BOOK (
 -- begin LIBRARY_BOOK_PUBLICATION
 create table LIBRARY_BOOK_PUBLICATION (
     ID varchar(36) not null,
-    CREATE_TS time,
+    CREATE_TS timestamp,
     CREATED_BY varchar(50),
     VERSION integer,
-    UPDATE_TS time,
+    UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
-    DELETE_TS time,
+    DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
     YEAR integer not null,
@@ -119,12 +119,12 @@ create table LIBRARY_BOOK_PUBLICATION (
 -- begin LIBRARY_BOOK_INSTANCE
 create table LIBRARY_BOOK_INSTANCE (
     ID varchar(36) not null,
-    CREATE_TS time,
+    CREATE_TS timestamp,
     CREATED_BY varchar(50),
     VERSION integer,
-    UPDATE_TS time,
+    UPDATE_TS timestamp,
     UPDATED_BY varchar(50),
-    DELETE_TS time,
+    DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
     IS_REFERENCE boolean,
