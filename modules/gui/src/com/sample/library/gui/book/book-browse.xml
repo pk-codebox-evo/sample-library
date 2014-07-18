@@ -26,18 +26,18 @@
         <groupTable id="bookTable"
                     height="100%"
                     width="100%">
-            <rows datasource="bookDs"/>
-            <columns>
-                <column id="name"/>
-                <column id="literatureType"/>
-            </columns>
-            <rowsCount/>
             <actions>
                 <action id="create"/>
                 <action id="edit"/>
                 <action id="remove"/>
                 <action id="excel"/>
             </actions>
+            <columns>
+                <column id="name"/>
+                <column id="literatureType"/>
+            </columns>
+            <rows datasource="bookDs"/>
+            <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
                 <button id="createBtn"
@@ -48,6 +48,8 @@
                         action="bookTable.remove"/>
                 <button id="excelBtn"
                         action="bookTable.excel"/>
+                <button id="reportButton"
+                        icon="icons/reports-print.png"/>
             </buttonsPanel>
         </groupTable>
     </layout>
