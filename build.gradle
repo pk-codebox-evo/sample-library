@@ -8,7 +8,7 @@ allprojects {
 }
 
 buildscript {
-    ext.cubaVersion = '5.1.6'
+    ext.cubaVersion = '5.1.8'
     repositories {
         maven {
             url 'https://repo.cuba-platform.com/content/groups/work'
@@ -52,6 +52,12 @@ configure([globalModule, coreModule, guiModule, webModule, desktopModule]) {
 
     artifacts {
         archives sourceJar
+    }
+
+    // temporary fix before updating YARG
+    configurations.all { 
+        exclude(group: 'bouncycastle')
+        exclude(group: 'org.bouncycastle') 
     }
 }
 
