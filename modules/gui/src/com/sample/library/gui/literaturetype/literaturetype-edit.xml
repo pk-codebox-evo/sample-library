@@ -2,7 +2,7 @@
 <!--
   ~ Copyright (c) 2014 Haulmont
   -->
-<window xmlns="http://schemas.haulmont.com/cuba/5.1/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/5.2/window.xsd"
         caption="msg://editCaption"
         class="com.sample.library.gui.literaturetype.LiteratureTypeEdit"
         datasource="literatureTypeDs"

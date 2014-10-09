@@ -2,7 +2,7 @@
 <!--
   ~ Copyright (c) 2014 Haulmont
   -->
-<screen-config xmlns="http://schemas.haulmont.com/cuba/5.1/screens.xsd">
+<screen-config xmlns="http://schemas.haulmont.com/cuba/5.2/screens.xsd">
     <screen id="library$Author.lookup"
             template="com/sample/library/gui/author/author-browse.xml"/>
     <screen id="library$Author.edit"
