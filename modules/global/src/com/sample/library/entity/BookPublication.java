@@ -17,7 +17,7 @@ import com.haulmont.chile.core.annotations.NamePattern;
 @Table(name = "LIBRARY_BOOK_PUBLICATION")
 @Entity(name = "library$BookPublication")
 public class BookPublication extends StandardEntity {
-    @Column(name = "YEAR", nullable = false)
+    @Column(name = "YEAR_", nullable = false)
     private Integer year;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

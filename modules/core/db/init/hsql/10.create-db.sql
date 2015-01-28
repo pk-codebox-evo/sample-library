@@ -108,7 +108,7 @@ create table LIBRARY_BOOK_PUBLICATION (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    YEAR integer not null,
+    YEAR_ integer not null,
     BOOK_ID varchar(36) not null,
     PUBLISHER_ID varchar(36) not null,
     TOWN_ID varchar(36),
@@ -140,5 +140,4 @@ create table LIBRARY_BOOK_AUTHOR_LINK (
     BOOK_ID varchar(36),
     AUTHOR_ID varchar(36),
     primary key (BOOK_ID, AUTHOR_ID) )^
-
 -- end LIBRARY_BOOK_AUTHOR_LINK
