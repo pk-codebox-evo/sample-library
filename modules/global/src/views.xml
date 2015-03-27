@@ -2,7 +2,7 @@
 <!--
   ~ Copyright (c) 2014 Haulmont
   -->
-<views xmlns="http://schemas.haulmont.com/cuba/5.3/view.xsd">
+<views xmlns="http://schemas.haulmont.com/cuba/5.4/view.xsd">
     <view class="com.sample.library.entity.BookPublication"
           name="bookPublication.full">
         <property name="year"/>
