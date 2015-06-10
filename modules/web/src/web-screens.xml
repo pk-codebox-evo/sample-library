@@ -1,8 +1,8 @@
 <!--
-  ~ Copyright (c) 2014 Haulmont
+  ~ Copyright (c) 2015 Haulmont
   -->
 
-<screen-config xmlns="http://schemas.haulmont.com/cuba/5.4/screens.xsd">
+<screen-config xmlns="http://schemas.haulmont.com/cuba/5.5/screens.xsd">
 
     <include file="/screens.xml"/>
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
-  ~ Copyright (c) 2014 Haulmont
+  ~ Copyright (c) 2015 Haulmont
   -->
-<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/5.5/window.xsd"
         caption="msg://browseCaption"
         class="com.sample.library.gui.author.AuthorBrowse"
         lookupComponent="authorTable"
