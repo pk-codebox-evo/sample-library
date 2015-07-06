@@ -29,7 +29,9 @@ public class BookInstanceBrowse extends AbstractLookup {
     public void init(Map<String, Object> params) {
         addAction(new AssignLibraryDepartmentAction(bookInstanceTable));
 
-        bookTitleLabel.setValue(String.format(getMessage("book"),
-                publication.getBook().getName(), publication.getPublisher().getName(), publication.getYear()));
+        if (publication != null) {
+            bookTitleLabel.setValue(String.format(getMessage("book"),
+                    publication.getBook().getName(), publication.getPublisher().getName(), publication.getYear()));
+        }
     }
 }
