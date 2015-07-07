@@ -6,7 +6,7 @@ The Library application is designed to keep a track of the books stored in a lib
 
 The Library showcase contains: 
 -	The data model, which includes 8 related entities
--	Non-generic screens
+-	Custom screens
 -	Both web and desktop representations of the UI generated from the same layout
 -	Simple business logic implemented on a middleware tier
 -	Reporting module with sample reports 
