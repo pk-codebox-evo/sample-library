@@ -2,7 +2,7 @@
 <!--
   ~ Copyright (c) 2015 Haulmont
   -->
-<window xmlns="http://schemas.haulmont.com/cuba/5.5/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://browseCaption"
         class="com.sample.library.gui.book.BookBrowse"
         lookupComponent="bookTable"

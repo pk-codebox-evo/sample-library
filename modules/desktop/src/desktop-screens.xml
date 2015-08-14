@@ -2,7 +2,7 @@
   ~ Copyright (c) 2015 Haulmont
   -->
 
-<screen-config xmlns="http://schemas.haulmont.com/cuba/5.5/screens.xsd">
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
 
     <include file="/screens.xml"/>
 

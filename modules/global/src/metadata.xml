@@ -2,7 +2,7 @@
 <!--
   ~ Copyright (c) 2015 Haulmont
   -->
-<metadata xmlns="http://schemas.haulmont.com/cuba/5.5/metadata.xsd">
+<metadata xmlns="http://schemas.haulmont.com/cuba/metadata.xsd">
     <metadata-model namespace="library"
                     root-package="com.sample.library"/>
 </metadata>
