@@ -2,7 +2,7 @@
 <!--
   ~ Copyright (c) 2015 Haulmont
   -->
-<menu-config xmlns="http://schemas.haulmont.com/cuba/5.5/menu.xsd">
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="library"
           insertBefore="reports">
         <item id="library$Book.lookup"/>
