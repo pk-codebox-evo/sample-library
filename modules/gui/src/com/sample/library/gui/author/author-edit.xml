@@ -25,8 +25,7 @@
             <field id="lastName"
                    width="100%"/>
         </fieldGroup>
-        <iframe id="windowActions"
-                height="100%"
+        <frame id="windowActions"
                 screen="editWindowActions"/>
     </layout>
 </window>

@@ -54,8 +54,7 @@
                    optionsDatasource="townsDs"
                    width="250px"/>
         </fieldGroup>
-        <iframe id="windowActions"
-                height="100%"
+        <frame id="windowActions"
                 screen="editWindowActions"/>
     </layout>
 </window>

@@ -64,7 +64,7 @@ public class BookInstanceServiceBean implements BookInstanceService {
         try {
             EntityManager em = persistence.getEntityManager();
             for (BookInstance booksInstance : bookInstances) {
-                BookInstance instance = em.merge(booksInstance);
+                BookInstance instance = em.merge(booksInstance, bookInstanceView);
                 instance.setLibraryDepartment(libraryDepartment);
                 // Fetch the object graph specified by the view
                 em.fetch(instance, bookInstanceView);

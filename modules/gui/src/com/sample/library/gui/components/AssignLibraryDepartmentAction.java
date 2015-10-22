@@ -9,28 +9,27 @@ import com.haulmont.cuba.gui.components.*;
 import com.sample.library.entity.BookInstance;
 import com.sample.library.gui.department_assigning.DepartmentAssigning;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 /**
  * Action that allows to assign library department to book instances, selected in a table.
- * <p/>
+ * <p>
  * This action is used by BookInstanceBrowse and AccessionRegisterWindow.
  */
 public class AssignLibraryDepartmentAction extends AbstractAction {
 
-    private Table booksInstancesTable;
+    private Table<BookInstance> booksInstancesTable;
 
-    public AssignLibraryDepartmentAction(Table booksInstancesTable) {
+    public AssignLibraryDepartmentAction(Table<BookInstance> booksInstancesTable) {
         super("assignLibraryDepartment");
         this.booksInstancesTable = booksInstancesTable;
     }
 
     @Override
     public void actionPerform(Component component) {
-        IFrame frame = booksInstancesTable.getFrame();
+        Frame frame = booksInstancesTable.getFrame();
 
         Set<BookInstance> bookInstances = booksInstancesTable.getSelected();
 
@@ -40,22 +39,19 @@ public class AssignLibraryDepartmentAction extends AbstractAction {
             params.put(DepartmentAssigning.INSTANCES_PARAM, bookInstances);
             params.put(DepartmentAssigning.VIEW_PARAM, booksInstancesTable.getDatasource().getView());
 
-            final DepartmentAssigning departmentAssigningWindow = frame.openWindow("department-assigning",
+            final DepartmentAssigning departmentAssigningWindow = (DepartmentAssigning) frame.openWindow("department-assigning",
                     WindowManager.OpenType.DIALOG, params);
-            departmentAssigningWindow.addListener(new Window.CloseListener() {
-                @Override
-                public void windowClosed(String actionId) {
-                    if (DepartmentAssigning.SUCCESS_ACTION.equals(actionId)) {
-                        for (BookInstance assignedInstance : departmentAssigningWindow.getAssignedInstances()) {
-                            // Put returned instances back into datasource
-                            booksInstancesTable.getDatasource().updateItem(assignedInstance);
-                        }
+            departmentAssigningWindow.addListener(actionId -> {
+                if (DepartmentAssigning.SUCCESS_ACTION.equals(actionId)) {
+                    for (BookInstance assignedInstance : departmentAssigningWindow.getAssignedInstances()) {
+                        // Put returned instances back into datasource
+                        booksInstancesTable.getDatasource().updateItem(assignedInstance);
                     }
                 }
             });
         } else {
             frame.showNotification(messages.getMainMessage("selectBookInstancesMessage.text"),
-                    IFrame.NotificationType.HUMANIZED);
+                    Frame.NotificationType.HUMANIZED);
         }
     }
 }

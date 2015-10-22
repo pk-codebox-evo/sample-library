@@ -7,7 +7,6 @@
           insertBefore="reports">
         <item id="library$Book.lookup"/>
         <item id="library$BookPublication.lookup"/>
-        <item id="library$BookInstance.lookup"/>
         <item id="accession-register"/>
     </menu>
     <menu id="referenceData"

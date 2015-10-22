@@ -4,17 +4,15 @@
 
 package com.sample.library.gui.literaturetype;
 
-import java.util.Map;
-
-import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.AbstractLookup;
 import com.haulmont.cuba.gui.components.actions.CreateAction;
 import com.haulmont.cuba.gui.components.actions.EditAction;
+import com.haulmont.cuba.gui.data.CollectionDatasource;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.haulmont.cuba.gui.components.Component;
+import java.util.Map;
 
 public class LiteratureTypeBrowse extends AbstractLookup {
 
@@ -23,7 +21,7 @@ public class LiteratureTypeBrowse extends AbstractLookup {
 
     @Named("literatureTypeTable.edit")
     private EditAction editAction;
-    
+
     @Inject
     private CollectionDatasource literatureTypeDs;
 
@@ -33,7 +31,7 @@ public class LiteratureTypeBrowse extends AbstractLookup {
         editAction.setOpenType(WindowManager.OpenType.DIALOG);
     }
 
-    public void refreshTable(Component source) {
+    public void refreshTable() {
         literatureTypeDs.refresh();
     }
 }

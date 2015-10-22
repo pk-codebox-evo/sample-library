@@ -7,7 +7,6 @@ package com.sample.library.gui.accession;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
-import com.haulmont.cuba.gui.data.ValueListener;
 import com.sample.library.entity.Book;
 import com.sample.library.entity.BookInstance;
 import com.sample.library.entity.BookPublication;
@@ -37,40 +36,32 @@ public class AccessionRegisterWindow extends AbstractWindow {
     private LookupPickerField bookField;
 
     @Inject
-    private Table bookPublicationsTable;
+    private Table<BookPublication> bookPublicationsTable;
 
     @Inject
     private TextField bookInstancesAmountField;
 
     @Inject
-    private Table bookInstancesTable;
+    private Table<BookInstance> bookInstancesTable;
 
     @Override
     public void init(Map<String, Object> params) {
-        bookField.addListener(new ValueListener() {
-            @Override
-            public void valueChanged(Object source, String property, Object prevValue, Object value) {
-                bookPublicationsDs.refresh();
-            }
-        });
+        bookField.addValueChangeListener(e -> bookPublicationsDs.refresh());
 
         addAction(new AssignLibraryDepartmentAction(bookInstancesTable));
     }
 
-    public void createBook(Component source) {
+    public void createBook() {
         final Window.Editor bookEditor = openEditor(
                 "library$Book.edit", new Book(), WindowManager.OpenType.THIS_TAB
         );
-        bookEditor.addListener(new CloseListener() {
-            @Override
-            public void windowClosed(String actionId) {
-                booksDs.refresh();
-                bookField.setValue(bookEditor.getItem());
-            }
+        bookEditor.addCloseListener(actionId -> {
+            booksDs.refresh();
+            bookField.setValue(bookEditor.getItem());
         });
     }
 
-    public void createBookPublication(Component source) {
+    public void createBookPublication() {
         Book book = bookField.getValue();
         if (book == null) {
             showNotification(getMessage("selectBookMessage.text"), NotificationType.HUMANIZED);
@@ -82,15 +73,10 @@ public class AccessionRegisterWindow extends AbstractWindow {
         Window.Editor bookPublicationEditor = openEditor(
                 "library$BookPublication.edit", bookPublication, WindowManager.OpenType.THIS_TAB
         );
-        bookPublicationEditor.addListener(new CloseListener() {
-            @Override
-            public void windowClosed(String actionId) {
-                bookPublicationsDs.refresh();
-            }
-        });
+        bookPublicationEditor.addCloseListener(actionId -> bookPublicationsDs.refresh());
     }
 
-    public void createBookInstances(Component source) {
+    public void createBookInstances() {
         BookPublication bookPublication = bookPublicationsTable.getSingleSelected();
         if (bookPublication == null) {
             showNotification(getMessage("selectBookPublicationMessage.text"), NotificationType.HUMANIZED);

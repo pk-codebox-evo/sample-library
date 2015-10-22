@@ -4,12 +4,9 @@
 
 package com.sample.library.gui.department_assigning;
 
-import com.haulmont.cuba.core.app.DataService;
-import com.haulmont.cuba.core.global.CommitContext;
 import com.haulmont.cuba.core.global.View;
 import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.AbstractWindow;
-import com.haulmont.cuba.gui.components.Component;
 import com.haulmont.cuba.gui.components.LookupField;
 import com.sample.library.entity.BookInstance;
 import com.sample.library.entity.LibraryDepartment;
@@ -45,7 +42,7 @@ public class DepartmentAssigning extends AbstractWindow {
         getDialogParams().setWidth(400);
     }
 
-    public void assign(Component source) {
+    public void assign() {
         LibraryDepartment libraryDepartment = libraryDepartmentField.getValue();
         if (libraryDepartment != null) {
             assignedInstances = bookInstanceService.assignLibraryDepartment(
@@ -56,7 +53,7 @@ public class DepartmentAssigning extends AbstractWindow {
         }
     }
 
-    public void close(Component source) {
+    public void close() {
         close("");
     }
 

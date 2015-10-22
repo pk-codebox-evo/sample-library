@@ -29,7 +29,6 @@
             <properties include=".*"/>
         </filter>
         <groupTable id="bookPublicationTable"
-                    height="100%"
                     width="100%">
             <rows datasource="bookPublicationDs"/>
             <columns>

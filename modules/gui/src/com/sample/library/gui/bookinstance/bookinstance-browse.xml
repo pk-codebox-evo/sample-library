@@ -8,19 +8,18 @@
         lookupComponent="bookInstanceTable"
         messagesPack="com.sample.library.gui.bookinstance">
     <dsContext>
-        <groupDatasource id="bookInstanceDs"
+        <collectionDatasource id="bookInstanceDs"
                               class="com.sample.library.entity.BookInstance"
                               view="bookInstance.browse">
             <query>
-                <![CDATA[select e from library$BookInstance e where (:param$bookPublication.id is null or e.bookPublication.id = :param$bookPublication.id) order by e.inventoryNumber]]>
+                <![CDATA[select e from library$BookInstance e where e.bookPublication.id = :param$bookPublication.id order by e.inventoryNumber]]>
             </query>
-        </groupDatasource>
+        </collectionDatasource>
     </dsContext>
     <layout expand="bookInstanceTable"
             spacing="true">
         <label id="bookTitleLabel"/>
-        <groupTable id="bookInstanceTable"
-               height="100%"
+        <table id="bookInstanceTable"
                width="100%">
             <rows datasource="bookInstanceDs"/>
             <columns>
@@ -46,6 +45,6 @@
                 <button id="excelBtn"
                         action="bookInstanceTable.excel"/>
             </buttonsPanel>
-        </groupTable>
+        </table>
     </layout>
 </window>

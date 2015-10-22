@@ -24,7 +24,6 @@
             <properties include=".*"/>
         </filter>
         <groupTable id="bookTable"
-                    height="100%"
                     width="100%">
             <actions>
                 <action id="create"/>

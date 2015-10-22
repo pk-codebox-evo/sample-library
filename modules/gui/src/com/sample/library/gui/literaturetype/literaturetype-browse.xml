@@ -34,7 +34,6 @@
             </groupBox>
         </hbox>
         <table id="literatureTypeTable"
-               height="100%"
                width="100%">
             <rows datasource="literatureTypeDs"/>
             <columns>

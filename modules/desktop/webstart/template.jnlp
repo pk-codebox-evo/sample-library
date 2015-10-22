@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2015 Haulmont
-  -->
-
 <jnlp
         spec="6.0+"
         codebase="replaced with baseUrl"
@@ -12,18 +8,18 @@
     <information>
         <title>library desktop application</title>
         <vendor>com.sample.library</vendor>
-        <homepage href="http://www.cuba-platform.com"/>
+<!--         <homepage href="http://www.haulmont.com"/> -->
         <description>library desktop application</description>
         <description kind="short">library desktop application</description>
         <offline-allowed/>
     </information>
 
     <application-desc main-class="com.sample.library.desktop.App">
-        <argument>cuba.connectionUrl=http://localhost:8080/app-core</argument>
+        <argument>cuba.connectionUrlList=http://localhost:8080/app-core</argument>
     </application-desc>
 
     <resources>
-        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.6+"
+        <j2se href="http://java.sun.com/products/autodl/j2se" version="1.7.0_7+"
               java-vm-args="-Xms64m -Xmx512m"/>
 
         <property name="com.sun.xml.namespace.QName.useCompatibleSerialVersionUID" value="1.0"/>

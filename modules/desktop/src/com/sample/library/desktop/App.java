@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2015 Haulmont
- */
-
 package com.sample.library.desktop;
 
 import javax.swing.*;
@@ -9,13 +5,11 @@ import javax.swing.*;
 public class App extends com.haulmont.cuba.desktop.App {
 
     public static void main(final String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                app = new App();
-                app.init(args);
-                app.show();
-                app.showLoginDialog();
-            }
+        SwingUtilities.invokeLater(() -> {
+            app = new App();
+            app.init(args);
+            app.show();
+            app.showLoginDialog();
         });
 
     }
@@ -31,7 +25,7 @@ public class App extends com.haulmont.cuba.desktop.App {
     }
 
     @Override
-    protected String getDefaultLog4jConfig() {
-        return "desktop-log4j.xml";
+    protected String getDefaultLogConfig() {
+        return "desktop-logback.xml";
     }
 }

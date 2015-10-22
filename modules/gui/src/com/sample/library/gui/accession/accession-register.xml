@@ -95,10 +95,8 @@ order by p.book.name]]>
         <groupBox id="itemsGroupBox"
                   caption="msg://createdBookInstances"
                   expand="bookInstancesTable"
-                  height="100%"
                   spacing="true">
             <table id="bookInstancesTable"
-                   height="100%"
                    multiselect="true"
                    width="100%">
                 <rows datasource="bookInstancesDs"/>

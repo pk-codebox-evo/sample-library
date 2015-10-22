@@ -18,6 +18,6 @@ public class BookBrowse extends AbstractLookup {
 
     @Override
     public void init(Map<String, Object> params) {
-        reportButton.setAction(new RunReportAction(this, "report"));
+        reportButton.setAction(new RunReportAction("report", this));
     }
 }

@@ -6,7 +6,6 @@ package com.sample.library.gui.bookpublication;
 
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.AbstractLookup;
-import com.haulmont.cuba.gui.components.Component;
 import com.haulmont.cuba.gui.components.Table;
 import com.sample.library.entity.BookPublication;
 
@@ -16,9 +15,9 @@ import java.util.Collections;
 public class BookPublicationBrowse extends AbstractLookup {
 
     @Inject
-    Table bookPublicationTable;
+    Table<BookPublication> bookPublicationTable;
 
-    public void browseInstances(Component source) {
+    public void browseInstances() {
         BookPublication bookPublication = bookPublicationTable.getSingleSelected();
         if (bookPublication != null) {
             openWindow("library$BookInstance.lookup", WindowManager.OpenType.THIS_TAB,

@@ -24,7 +24,6 @@
             <properties include=".*"/>
         </filter>
         <table id="authorTable"
-               height="100%"
                width="100%">
             <rows datasource="authorDs"/>
             <columns>

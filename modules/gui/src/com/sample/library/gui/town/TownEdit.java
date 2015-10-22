@@ -4,10 +4,10 @@
 
 package com.sample.library.gui.town;
 
-import java.util.Map;
 import com.haulmont.cuba.gui.components.AbstractEditor;
 import com.sample.library.entity.Town;
-import com.haulmont.cuba.gui.components.AbstractWindow;
+
+import java.util.Map;
 
 public class TownEdit extends AbstractEditor<Town> {
 
