@@ -22,12 +22,7 @@
             </query>
         </collectionDatasource>
     </dsContext>
-    <actions>
-        <action id="addAuthorAction"
-                caption="msg://actions.Add"
-                icon="icons/add.png"
-                invoke="addAuthor"/>
-    </actions>
+
     <layout expand="windowActions"
             spacing="true">
         <groupBox width="500px">
@@ -57,15 +52,13 @@
                     <column id="lastName"/>
                 </columns>
                 <actions>
-                    <action id="addAuthorAction"
-                            caption="msg://actions.Add"
-                            icon="icons/add.png"
-                            invoke="addAuthor"/>
+                    <action id="add"
+                            caption="msg://actions.Add"/>
                     <action id="remove"/>
                 </actions>
                 <buttonsPanel id="buttonspanel_1">
                     <button id="addAuthorActionBtn"
-                            action="authorsTable.addAuthorAction"/>
+                            action="authorsTable.add"/>
                     <button id="removeBtn"
                             action="authorsTable.remove"/>
                 </buttonsPanel>

@@ -20,7 +20,7 @@ import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @NamePattern("%s|name")
 @Table(name = "LIBRARY_BOOK")
@@ -37,16 +37,15 @@ public class Book extends StandardEntity {
             joinColumns = @JoinColumn(name = "BOOK_ID"),
             inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID"))
     @ManyToMany
-    private List<Author> authors;
+    private Set<Author> authors;
 
-    public void setAuthors(List<Author> authors) {
+    public void setAuthors(Set<Author> authors) {
         this.authors = authors;
     }
 
-    public List<Author> getAuthors() {
+    public Set<Author> getAuthors() {
         return authors;
     }
-
 
     public void setName(String name) {
         this.name = name;
@@ -63,6 +62,4 @@ public class Book extends StandardEntity {
     public LiteratureType getLiteratureType() {
         return literatureType;
     }
-
-
 }
