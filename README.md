@@ -1,4 +1,4 @@
-# library
+# Library
 
 This is a showcase application which is developed to demonstrate the capabilities and features of both the CUBA Platform and the CUBA Studio.
 
