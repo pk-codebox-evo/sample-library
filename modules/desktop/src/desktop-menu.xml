@@ -4,13 +4,13 @@
   -->
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="library"
-          insertBefore="reports">
+          insertBefore="administration">
         <item id="library$Book.lookup"/>
         <item id="library$BookPublication.lookup"/>
         <item id="accession-register"/>
     </menu>
     <menu id="referenceData"
-          insertBefore="reports">
+          insertBefore="administration">
         <item id="library$LibraryDepartment.lookup"/>
         <item id="library$LiteratureType.lookup"/>
         <item id="library$Town.lookup"/>

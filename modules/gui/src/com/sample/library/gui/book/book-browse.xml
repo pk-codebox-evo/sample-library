@@ -47,8 +47,6 @@
                         action="bookTable.remove"/>
                 <button id="excelBtn"
                         action="bookTable.excel"/>
-                <button id="reportButton"
-                        icon="icons/reports-print.png"/>
             </buttonsPanel>
         </groupTable>
     </layout>
