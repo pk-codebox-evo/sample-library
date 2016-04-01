@@ -33,7 +33,7 @@ public class BookPublicationBrowse extends AbstractLookup {
         BookPublication bookPublication = bookPublicationTable.getSingleSelected();
         if (bookPublication != null) {
             openWindow("library$BookInstance.lookup", WindowManager.OpenType.THIS_TAB,
-                    Collections.<String, Object>singletonMap("bookPublication", bookPublication));
+                    Collections.singletonMap("bookPublication", bookPublication));
         } else {
             showNotification(getMessage("selectBookPublicationMessage.text"), NotificationType.HUMANIZED);
         }

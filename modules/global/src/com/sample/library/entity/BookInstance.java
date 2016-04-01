@@ -74,6 +74,4 @@ public class BookInstance extends StandardEntity {
     public LibraryDepartment getLibraryDepartment() {
         return libraryDepartment;
     }
-
-
 }

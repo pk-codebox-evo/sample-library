@@ -20,9 +20,7 @@ import com.haulmont.cuba.core.EntityManager;
 import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.Transaction;
 import com.haulmont.cuba.core.app.UniqueNumbersAPI;
-import com.haulmont.cuba.core.global.AccessDeniedException;
-import com.haulmont.cuba.core.global.Security;
-import com.haulmont.cuba.core.global.View;
+import com.haulmont.cuba.core.global.*;
 import com.haulmont.cuba.security.entity.EntityOp;
 import com.haulmont.cuba.security.entity.PermissionType;
 import com.sample.library.entity.BookInstance;
@@ -47,6 +45,9 @@ public class BookInstanceServiceBean implements BookInstanceService {
     @Inject
     private Security security;
 
+    @Inject
+    private Metadata metadata;
+
     @Override
     @Transactional
     public Collection<BookInstance> createBookInstances(BookPublication bookPublication, Integer amount) {
@@ -55,7 +56,7 @@ public class BookInstanceServiceBean implements BookInstanceService {
         // committed after leaving the method
         Collection<BookInstance> bookInstances = new ArrayList<>();
         for (int i = 0; i < amount; ++i) {
-            BookInstance bookInstance = new BookInstance();
+            BookInstance bookInstance = metadata.create(BookInstance.class);
             bookInstance.setBookPublication(bookPublication);
             bookInstance.setInventoryNumber(uniqueNumbers.getNextNumber("inventory_number"));
 
@@ -78,8 +79,6 @@ public class BookInstanceServiceBean implements BookInstanceService {
             for (BookInstance booksInstance : bookInstances) {
                 BookInstance instance = em.merge(booksInstance, bookInstanceView);
                 instance.setLibraryDepartment(libraryDepartment);
-                // Fetch the object graph specified by the view
-                em.fetch(instance, bookInstanceView);
                 // Return the updated instance
                 mergedInstances.add(instance);
             }

@@ -52,7 +52,7 @@ public class AssignLibraryDepartmentAction extends AbstractAction {
             params.put(DepartmentAssigning.VIEW_PARAM, booksInstancesTable.getDatasource().getView());
 
             final DepartmentAssigning departmentAssigningWindow = (DepartmentAssigning) frame.openWindow("department-assigning",
-                    WindowManager.OpenType.DIALOG, params);
+                    WindowManager.OpenType.DIALOG.width(400), params);
             departmentAssigningWindow.addListener(actionId -> {
                 if (DepartmentAssigning.SUCCESS_ACTION.equals(actionId)) {
                     for (BookInstance assignedInstance : departmentAssigningWindow.getAssignedInstances()) {

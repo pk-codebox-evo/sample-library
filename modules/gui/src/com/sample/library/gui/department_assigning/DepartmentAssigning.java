@@ -26,7 +26,6 @@ import com.sample.library.service.BookInstanceService;
 
 import javax.inject.Inject;
 import java.util.Collection;
-import java.util.Map;
 
 public class DepartmentAssigning extends AbstractWindow {
 
@@ -48,11 +47,6 @@ public class DepartmentAssigning extends AbstractWindow {
     private View bookInstanceView;
 
     private Collection<BookInstance> assignedInstances;
-
-    @Override
-    public void init(Map<String, Object> params) {
-        getDialogParams().setWidth(400);
-    }
 
     public void assign() {
         LibraryDepartment libraryDepartment = libraryDepartmentField.getValue();

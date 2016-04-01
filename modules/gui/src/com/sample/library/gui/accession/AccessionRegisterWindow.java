@@ -16,6 +16,7 @@
 
 package com.sample.library.gui.accession;
 
+import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
@@ -56,6 +57,9 @@ public class AccessionRegisterWindow extends AbstractWindow {
     @Inject
     private Table<BookInstance> bookInstancesTable;
 
+    @Inject
+    private Metadata metadata;
+
     @Override
     public void init(Map<String, Object> params) {
         bookField.addValueChangeListener(e -> bookPublicationsDs.refresh());
@@ -65,7 +69,7 @@ public class AccessionRegisterWindow extends AbstractWindow {
 
     public void createBook() {
         final Window.Editor bookEditor = openEditor(
-                "library$Book.edit", new Book(), WindowManager.OpenType.THIS_TAB
+                "library$Book.edit", metadata.create(Book.class), WindowManager.OpenType.THIS_TAB
         );
         bookEditor.addCloseListener(actionId -> {
             booksDs.refresh();
@@ -80,7 +84,7 @@ public class AccessionRegisterWindow extends AbstractWindow {
             return;
         }
 
-        BookPublication bookPublication = new BookPublication();
+        BookPublication bookPublication = metadata.create(BookPublication.class);
         bookPublication.setBook(book);
         Window.Editor bookPublicationEditor = openEditor(
                 "library$BookPublication.edit", bookPublication, WindowManager.OpenType.THIS_TAB
