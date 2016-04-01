@@ -73,8 +73,7 @@ public class BookInstanceServiceBean implements BookInstanceService {
         checkPermission(EntityOp.UPDATE);
         Collection<BookInstance> mergedInstances = new ArrayList<>();
         // Explicit transaction control
-        Transaction tx = persistence.createTransaction();
-        try {
+        try (Transaction tx = persistence.createTransaction()) {
             EntityManager em = persistence.getEntityManager();
             for (BookInstance booksInstance : bookInstances) {
                 BookInstance instance = em.merge(booksInstance, bookInstanceView);
@@ -83,8 +82,6 @@ public class BookInstanceServiceBean implements BookInstanceService {
                 mergedInstances.add(instance);
             }
             tx.commit();
-        } finally {
-            tx.end();
         }
         return mergedInstances;
     }
