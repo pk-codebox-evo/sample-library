@@ -11,4 +11,4 @@ The Library showcase contains:
 -	Simple business logic implemented on a middleware tier
 -	Reporting module with sample reports 
 
-Based on CUBA Platform 6.1.0
+Based on CUBA Platform 6.1.1
