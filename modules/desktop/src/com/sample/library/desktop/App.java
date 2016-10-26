@@ -44,4 +44,9 @@ public class App extends com.haulmont.cuba.desktop.App {
     protected String getDefaultLogConfig() {
         return "desktop-logback.xml";
     }
+    @Override
+    protected String getDefaultAppComponents() {
+        return "com.haulmont.cuba";
+    }
+
 }
