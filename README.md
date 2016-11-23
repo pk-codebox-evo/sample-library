@@ -1,6 +1,6 @@
 # Library
 
-This is a showcase application which is developed to demonstrate the capabilities and features of both the [CUBA Platform](https://www.cuba-platform.com/) and the CUBA Studio.
+This is a showcase application which is developed to demonstrate the capabilities and features of both the CUBA Platform and the CUBA Studio.
 
 The Library application is designed to keep a track of the books stored in a library. A user can create, edit and delete books, authors, publishers, library departments, etc. and perform the book instances accession.  
 
