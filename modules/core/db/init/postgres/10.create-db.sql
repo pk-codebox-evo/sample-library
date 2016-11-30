@@ -91,7 +91,7 @@ create table LIBRARY_BOOK (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    NAME varchar(50) not null,
+    NAME varchar(100) not null,
     LITERATURE_TYPE_ID uuid not null,
     --
     primary key (ID)
@@ -108,7 +108,7 @@ create table LIBRARY_BOOK_PUBLICATION (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    YEAR integer not null,
+    YEAR_ integer not null,
     BOOK_ID uuid not null,
     PUBLISHER_ID uuid not null,
     TOWN_ID uuid,
